@@ -8,6 +8,11 @@ app.use(express.json());
 app.use('/question', question);
 app.use('/user', user);
 
+// [] Authentication
+// [] Database
+// [] Logging ?
+// [] Admin
+
 app.get('/', (req, res) => {
     res.send("Tartabull API");
 });
