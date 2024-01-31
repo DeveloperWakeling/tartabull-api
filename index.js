@@ -20,18 +20,6 @@ app.get('/', (req, res) => {
     res.send("Tartabull API");
 });
 
-app.get('/tester', (req, res) => {
-    let questiontest = new Question({
-        type: "test",
-        answers: ["test", "tester"]
-    });
-
-    questiontest.save().then(tester => {
-        res.send(tester);
-    }).catch(err => console.log(err));
-
-});
-
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
