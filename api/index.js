@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const question = require('./routes/question.js');
-const user = require('./routes/user.js');
+const question = require('../routes/question.js');
+const user = require('../routes/user.js');
 const mongoose = require('mongoose');
-const Question = require('./models/question.js');
-const verifyToken = require('./middleware/auth.js');
+const Question = require('../models/question.js');
+const verifyToken = require('../middleware/auth.js');
 
 require('dotenv').config();
 
