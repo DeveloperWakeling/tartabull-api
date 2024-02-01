@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const question = require('../routes/question.js');
 const user = require('../routes/user.js');
 const mongoose = require('mongoose');
@@ -38,6 +38,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
-
-// Vercel integration
-module.exports = app;
