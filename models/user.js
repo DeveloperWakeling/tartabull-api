@@ -22,6 +22,7 @@ const user = new Schema({
         lowercase: true,
         required: [true, "Email not provided"]
     },
+    emailVerified: Boolean,
     role: {
         type: String,
         enum: ["normal", "admin"],
@@ -31,6 +32,16 @@ const user = new Schema({
         type: String,
         required: [true, "Password not provided"]
     },
+    gender: {
+        type: String,
+        enum: [
+            "Male",
+            "Female",
+            "Other"
+        ]
+    },
+    suffix: String,
+    dateOfBirth: Date,
     created: {
         type: Date,
         default: Date.now

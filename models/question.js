@@ -4,8 +4,17 @@ const Schema = mongoose.Schema;
 
 const question = new Schema({
     type: String,
-    answers: [String],
-    createdDate: Date,
+    questionText: String,
+    availableAnswers: [String],
+    createdDate: {
+        type: Date,
+        default: Date.now
+    },
+    sponsor: { 
+        type: mongoose.Schema.ObjectId,
+        ref: "Sponsor"
+    },
+    closedDate: Date
 });
 
 const QuestionModel = mongoose.model("Question", question);
