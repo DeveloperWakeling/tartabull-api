@@ -7,7 +7,7 @@ const answer = new Schema({
     user: { type: Schema.Types.ObjectId, ref: "User" },
     question: { type: Schema.Types.ObjectId, ref: "Question" },
     answered: {
-        type: String,
+        type: Date,
         default: Date.now
     }
 });

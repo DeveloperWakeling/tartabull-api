@@ -10,9 +10,21 @@ router.use((req,res,next) =>{
     next();
 });
 
-// Need to figure out how to get next question for specific user
-router.get('/', (req, res) => {
-    res.send('Questions Route');
+router.get('/', verifyToken, (req, res) => {
+    var requestUser = req.user;
+    if(!requestUser){
+        res.status(403).send({message: "Invalid Token"});
+    }
+    if(requestUser){
+        if(requestUser.role == "admin"){
+            Question.find({}).then(questions => {
+                res.status(200).send({questions: questions});
+            }).catch(err => res.status(500).send({message: err}));
+        }
+        else {
+            res.status(401).send({message: "Unauthorized"});
+        }
+    }
 });
 
 // Creating a question
@@ -38,6 +50,7 @@ router.post('/', verifyToken, (req, res) => {
         });
     }
 });
+
 
 // Answering a question
 router.post('/:questionId', verifyToken, (req, res) => {
