@@ -5,6 +5,7 @@ const question = require('./routes/question.js');
 const user = require('./routes/user.js');
 const answer = require('./routes/answer.js');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use('/question', question);
 app.use('/user', user);
 app.use('/answer', answer);
+app.use(cors());
 
 mongoose.connect(process.env.CONNECTIONSTRING).catch((err) => console.log(err));
 // [] Authentication
