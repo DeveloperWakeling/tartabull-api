@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/question', question);
 app.use('/user', user);
 app.use('/answer', answer);
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 mongoose.connect(process.env.CONNECTIONSTRING).catch((err) => console.log(err));
 // [] Authentication
