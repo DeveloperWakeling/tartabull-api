@@ -27,6 +27,7 @@ router.post('/login', (req, res) => {
                     accessToken: null,
                     message: "Invalid Password"
                 });
+                return;
             }
 
             var token = jwt.sign({
