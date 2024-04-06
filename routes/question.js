@@ -18,7 +18,7 @@ router.get('/', verifyToken, (req, res) => {
     if(requestUser){
         if(requestUser.role == "admin"){
             Question.find({}).then(questions => {
-                res.status(200).send({questions: questions});
+                res.status(200).send(questions);
             }).catch(err => res.status(500).send({message: err}));
         }
         else {
